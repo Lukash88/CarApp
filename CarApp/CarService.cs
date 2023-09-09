@@ -2,89 +2,84 @@
 {
     public class CarService : ICarService
     {
-        public string Brand { get; set; }
-        public string Model { get; set; }
-        public int Speed { get; set; } = 0;
-        public int MaxSpeed { get; set; }
-        public Transmission Transmission { get; set; }
-
-        public void StartEngine()
+        public void StartEngine(string brand, string model)
         {
-            Console.WriteLine($"Your {Brand} {Model} started the engine.\n");
+            Console.WriteLine($"Your {brand} {model} started the engine.\n");
         }
 
-        public void StopEngine()
+        public void StopEngine(string brand, string model)
         {
-            Console.WriteLine($"Your {Brand} {Model} stooped the engine.\n");
+            Console.WriteLine($"Your {brand} {model} stoped the engine.\n");
         }
 
-        public void SpeedUp(int acceleration)
+        public void SpeedUp(string brand, string model, int speed, int maxSpeed, int acceleration)
         {
-            if (Speed == 0)
+            if (speed == 0)
             {
-                Speed += acceleration;
-                if (Speed >= MaxSpeed)
+                speed += acceleration;
+                if (speed >= maxSpeed)
                 {
-                    Speed = MaxSpeed;
+                    speed = maxSpeed;
                     Console.WriteLine($"You just started to drive and you have just reached your max speed: " +
-                                      $"{Speed} - {MaxSpeed} of your {Brand} {Model}.\n");
+                                      $"{speed} - {maxSpeed} of your {brand} {model}.\n");
                 }
                 else
                 {
-                    Console.WriteLine($"You just started to drive, your current speed is {Speed} " +
-                                      $"with your {Brand} {Model}.\n");
+                    Console.WriteLine($"You just started to drive, your current speed is {speed} " +
+                                      $"with your {brand} {model}.\n");
                 }
             }
             else
             {
-                Speed += acceleration;
-                if (Speed >= MaxSpeed)
+                speed += acceleration;
+                if (speed >= maxSpeed)
                 {
-                    Speed = MaxSpeed;
-                    Console.WriteLine($"You have just reached your max speed: {Speed} - {MaxSpeed} " +
-                                      $"of your {Brand} {Model}.\n");
+                    speed = maxSpeed;
+                    Console.WriteLine($"You have just reached your max speed: {speed} - {maxSpeed} " +
+                                      $"of your {brand} {model}.\n");
                 }
                 else
                 {
-                    Console.WriteLine($"You sped up to {Speed} with your {Brand} {Model}.\n");
+                    Console.WriteLine($"You sped up to {speed} with your {brand} {model}.\n");
                 }
             }
         }
 
-        public void SlowDown(int deceleration)
+        public void SlowDown(string brand, string model, int speed, int maxSpeed, int deceleration)
         {
-            if (Speed == 0)
+            if (speed == 0)
             {
-                Console.WriteLine($"You have already stopped driving your {Brand} {Model}.\n");
+                Console.WriteLine($"You have already stopped driving your {brand} {model}.\n");
             }
             else
             {
-                Speed -= deceleration;
-                if (Speed <= 0)
+                speed -= deceleration;
+                if (speed <= 0)
                 {
-                    Speed = 0;
-                    Console.WriteLine($"You have just stopped your {Brand} {Model}.\n");
+                    speed = 0;
+                    Console.WriteLine($"You have just stopped your {brand} {model}.\n");
                 }
                 else
                 {
-                    Console.WriteLine($"You slowed down to {Speed} with your {Brand} {Model}.\n");
+                    Console.WriteLine($"You slowed down to {speed} with your {brand} {model}.\n");
                 }
             }
         }
 
-        public void Turn(string direction)
+        public void Turn(string brand, string model, string direction)
         {
-            Console.WriteLine($"Your {Brand} {Model} turning to the {direction}.\n");
+            Console.WriteLine($"Your {brand} {model} is turning to the {direction}.\n");
         }
 
-        public void DisplayCarInfo()
+        public void DisplayCarInfo(string brand, string model, Transmission transmission, int speed, int maxSpeed)
         {
             Console.WriteLine("Your car info:");
-            Console.WriteLine($"\t- Brand: {Brand}");
-            Console.WriteLine($"\t- Model: {Model}");
-            Console.WriteLine($"\t- Transmission: {Transmission.Type} - {Transmission.NumberOfGears} gears");
-            Console.WriteLine($"\t- Your current speed: {Speed}");
-            Console.WriteLine($"\t- Your max speed: {MaxSpeed}\n");
+
+            Console.WriteLine($"\t- Brand: {brand}");
+            Console.WriteLine($"\t- Model: {model}");
+            Console.WriteLine($"\t- Transmission: {transmission.Type} - {transmission.NumberOfGears} gears");
+            Console.WriteLine($"\t- Your current speed: {speed}");
+            Console.WriteLine($"\t- Your max speed: {maxSpeed}\n");
         }
     }
 }

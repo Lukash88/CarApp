@@ -4,35 +4,32 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the CarApp\n");
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\tWelcome to the CarApp\n");
+            Console.ResetColor();
 
             var audi = new Car("Audi", "A6", 90, 200,
                 new Transmission("Automatic", 7));
             var bmw = new Car("BMW", "X5", 100, 190,
                 new Transmission("Manual", 6));
-            ;
 
             audi.DisplayInfo();
-            bmw.DisplayInfo();
-
-            Console.WriteLine("\n----------------------------------------------\n");
-
-            audi.Accelerate(200);
-            bmw.Brake(1000);
-
-            Console.WriteLine("\n----------------------------------------------\n");
-
             audi.Start();
-            bmw.Stop();
-
-            Console.WriteLine("\n----------------------------------------------\n");
-
+            audi.Accelerate(200);
             audi.Brake(35);
-            bmw.Accelerate(45);
+            audi.Turn("left");
+            audi.Stop();
+            audi.DisplayInfo();
 
             Console.WriteLine("\n----------------------------------------------\n");
 
-            audi.DisplayInfo();
+            bmw.DisplayInfo();
+            bmw.Start();
+            bmw.Accelerate(45);
+            bmw.Turn("right");
+            bmw.Brake(1000);
+            bmw.Stop();
             bmw.DisplayInfo();
 
             Console.ReadLine();

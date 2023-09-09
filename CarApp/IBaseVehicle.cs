@@ -2,13 +2,8 @@
 {
     public interface IBaseVehicle
     {
-        public string Brand { get; set; }
-        public string Model { get; set; }
-        public int Speed { get; set; }
-        public int MaxSpeed { get; set; }
-
-        void SpeedUp(int acceleration);
-        void SlowDown(int deceleration);
-        void Turn(string direction);
+        void SpeedUp(string brand, string model, int speed, int maxSpeed, int acceleration);
+        void SlowDown(string brand, string model, int speed, int maxSpeed, int deceleration);
+        void Turn(string brand, string model, string direction);
     }
 }

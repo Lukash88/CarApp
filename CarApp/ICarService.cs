@@ -2,9 +2,8 @@
 {
     public interface ICarService : IBaseVehicle
     {
-        public Transmission Transmission { get; set; }
-        void StartEngine();
-        void StopEngine();
-        void DisplayCarInfo();
+        void StartEngine(string brand, string model);
+        void StopEngine(string brand, string model);
+        void DisplayCarInfo(string brand, string model, Transmission transmission, int speed, int maxSpeed);
     }
 }

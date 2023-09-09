@@ -8,7 +8,7 @@
             NumberOfGears = numberOfGears;
         }
 
-        public string Type { get; set; }
-        public int NumberOfGears { get; set; }
+        public string Type { get; }
+        public int NumberOfGears { get; }
     }
 }
